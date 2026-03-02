@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Rasmalai 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+margin:0;
+background:black;
+color:white;
+text-align:center;
+font-family: 'Segoe Script', cursive;
+overflow:hidden;
+}
+
+#start{
+position:absolute;
+top:40%;
+width:100%;
+}
+
+button{
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:30px;
+background:pink;
+cursor:pointer;
+}
+
+#letter{
+display:none;
+position:absolute;
+top:20%;
+width:100%;
+padding:20px;
+}
+
+#clock{
+position:absolute;
+top:10px;
+right:20px;
+font-size:16px;
+color:pink;
+}
+
+.heart{
+position:absolute;
+color:pink;
+font-size:20px;
+animation: float 5s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<div id="clock"></div>
+
+<div id="start">
+<h1>Hey Rasmalai 😘</h1>
+<p>Someone shy (Oi 👀) wants to say something...</p>
+<button onclick="startLove()">Open 💌</button>
+</div>
+
+<div id="letter">
+<h2>My Sweet Rasmalai 💕</h2>
+<p>
+Oi… every time you call me "Oi"<br>
+my heart secretly smiles ❤️<br><br>
+
+From the first day till now,<br>
+you became my calm, my chaos, my happiness.<br><br>
+
+On 18 September — our special day 💞<br>
+I realised something very clearly…<br><br>
+
+I don’t want days without you.<br>
+I don’t want nights without you.<br><br>
+
+Will you stay with your shy Oi forever? 💍✨
+</p>
+</div>
+
+<audio id="music" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function startLove(){
+document.getElementById("start").style.display="none";
+document.getElementById("letter").style.display="block";
+document.getElementById("music").play();
+startHearts();
+setTimeout(showPopup,8000);
+}
+
+function showPopup(){
+alert("Rasmalai 💖\nWill you be mine forever? 💍✨");
+}
+
+function startHearts(){
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.style.left=Math.random()*100+"vw";
+heart.innerHTML="💖";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),5000);
+},300);
+}
+
+function updateClock(){
+let now=new Date();
+document.getElementById("clock").innerHTML=
+now.toLocaleTimeString();
+}
+setInterval(updateClock,1000);
+updateClock();
+</script>
+
+</body>
+  </html>
